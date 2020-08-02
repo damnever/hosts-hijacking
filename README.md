@@ -1,6 +1,6 @@
 # hosts-hijacking
 
-Hijack UDP-based([libc recvfrom](https://man7.org/linux/man-pages/man2/recvfrom.2.html)) DNS response with LD_PRELOAD.
+Hijack UDP-based([libc recvfrom](https://man7.org/linux/man-pages/man2/recvfrom.2.html)) DNS A/AAAA response with LD_PRELOAD.
 
 ```
 # make build
@@ -15,7 +15,7 @@ Hijack UDP-based([libc recvfrom](https://man7.org/linux/man-pages/man2/recvfrom.
 
 - We want to keep the dirty hack at the client-side.
 - We have no permission to change the hosts file(or we do not want to change it, see below).
-- No side effect for other processes.
+- No side effect to other processes.
 
 ## NOTES
 
