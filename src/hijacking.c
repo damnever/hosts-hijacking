@@ -26,11 +26,11 @@ _hostshijacking_table *__hosts_table() {
 
 ssize_t recvfrom(int sockfd, void *buf, size_t len, int flags,
                  struct sockaddr *src_addr, socklen_t *addrlen) {
-    ssize_t *(*origin_recvfrom)(int, void *, size_t, int, struct sockaddr *,
-                                socklen_t *);
+    ssize_t (*origin_recvfrom)(int, void *, size_t, int, struct sockaddr *,
+                               socklen_t *);
     origin_recvfrom = dlsym(RTLD_NEXT, "recvfrom");
     ssize_t bufsz =
-        (ssize_t)(*origin_recvfrom)(sockfd, buf, len, flags, src_addr, addrlen);
+        (*origin_recvfrom)(sockfd, buf, len, flags, src_addr, addrlen);
     if (-1 == bufsz) return bufsz;
 
     _hostshijacking_table *hosts = __hosts_table();
