@@ -1,8 +1,10 @@
+TARGET ?= "hostsfile"  # recvfrom
+
 build:
-	@$(MAKE) $@ -C src
+	@$(MAKE) $@ -C $(TARGET)
 
 test:
-	@$(MAKE) $@ -C src
+	@$(MAKE) $@ -C $(TARGET)
 
 clean:
-	@$(MAKE) $@ -C src
+	@$(MAKE) $@ -C $(TARGET)
